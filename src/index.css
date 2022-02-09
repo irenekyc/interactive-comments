@@ -28,6 +28,10 @@ button {
   cursor: pointer;
 }
 
+p {
+  text-align: left;
+}
+
 html {
   background: hsl(228, 33%, 97%);
 }

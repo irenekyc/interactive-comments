@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
+import CommentsSection from "./widgets/comments";
+import NewComment from "./widgets/new-comment";
 
 function App() {
   return (
     <div className="App">
-      <section></section>
-      <section></section>
+      <CommentsSection />
+      <NewComment />
     </div>
   );
 }

@@ -1,10 +1,7 @@
 @import "../../variables.scss";
 
 .userrow {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
+  @include row("flex-start");
 
   &__avatar {
     @include avatar();

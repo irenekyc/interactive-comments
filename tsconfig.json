@@ -16,5 +16,18 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "plugins": [
+    {
+      "name": "typescript-plugin-css-modules",
+      "options": {
+        "classnameTransform": "dashes",
+        "rendererOptions": {
+          "sass": {
+            "includePaths": ["src"]
+          }
+        }
+      }
+    }
+  ]
 }

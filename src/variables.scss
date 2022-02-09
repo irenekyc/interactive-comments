@@ -1,6 +1,42 @@
+$dark-purple: hsl(238, 40%, 52%);
+$dark-red: #ed6368;
+
 @mixin avatar {
   height: 28px;
   width: 28px;
   border-radius: 100%;
   margin-right: 12px;
+}
+
+@mixin row($justify-content: center) {
+  display: flex;
+  width: 100%;
+  justify-content: $justify-content;
+  align-items: center;
+}
+
+@mixin button {
+  display: inline-flex;
+  background: $dark-purple;
+  color: white;
+  padding: 15px 24px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  @include hover-state();
+}
+
+@mixin hover-state {
+  &:hover {
+    filter: brightness(1.8);
+  }
+}
+
+@mixin card-style {
+  background: white;
+  padding: 20px 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
 }

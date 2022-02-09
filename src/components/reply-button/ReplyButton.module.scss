@@ -1,2 +1,13 @@
+@import "../../variables.scss";
+
 .replyButton {
+  @include row;
+  width: auto;
+  svg {
+    margin-right: 8px;
+  }
+  font-weight: 700;
+  color: $dark-purple;
+
+  @include hover-state;
 }

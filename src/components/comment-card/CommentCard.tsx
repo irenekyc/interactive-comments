@@ -4,6 +4,7 @@ import Score from "../score";
 import UserRow from "../user-row";
 import { CommentType, ReplyCommentType } from "../../typings/Comment";
 import styles from "./CommentCard.module.scss";
+import CurrentUserEditRow from "../current-user-edit-row";
 
 interface CommentCardProps {
   isReply?: boolean;
@@ -18,13 +19,18 @@ const CommentCard: FunctionComponent<CommentCardProps> = ({
     const { replyingTo = "" } = comment as ReplyCommentType;
     return <span>@{replyingTo}</span>;
   };
+  const isCurrentUser: boolean = comment.user.username === "juliusomo";
   return (
     <div className={styles.commentCard__card}>
       <Score commentId={comment.id} />
       <div className={styles.commentCard__main}>
-        <div className="row">
+        <div className={styles.commentCard__row}>
           <UserRow user={comment.user} createdAt={comment.createdAt} />
-          <ReplyButton commentId={comment.id} />
+          {isCurrentUser ? (
+            <CurrentUserEditRow />
+          ) : (
+            <ReplyButton commentId={comment.id} />
+          )}
         </div>
         <div className={styles.commentCard__content}>
           <p>
@@ -38,12 +44,3 @@ const CommentCard: FunctionComponent<CommentCardProps> = ({
 };
 
 export default CommentCard;
-
-{
-  /* <div className="comment-card__replies__wrapper">
-<div className="comment-card__replies__divider"></div>
-<div className="comment-card__replies__main">
-
-</div>
-</div> */
-}

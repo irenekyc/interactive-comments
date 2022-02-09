@@ -1,0 +1,29 @@
+@import "../../variables.scss";
+
+.row {
+  @include row("flex-start");
+  width: auto;
+}
+
+.button__delete {
+  @include row;
+  width: auto;
+  margin-right: 16px;
+  @include hover-state;
+  color: $dark-red;
+  font-weight: 700;
+  span {
+    margin-left: 4px;
+  }
+}
+
+.button__edit {
+  @include row;
+  width: auto;
+  @include hover-state;
+  font-weight: 700;
+  span {
+    margin-left: 4px;
+  }
+  color: $dark-purple;
+}

@@ -22,7 +22,6 @@ const Score: FunctionComponent<ScoreProps> = ({ commentId }: ScoreProps) => {
         </svg>
       </button>
       <p>{score}</p>
-      <p>{score}</p>
       <button
         className={styles.score__minus}
         id={`comment-${commentId}-minus`}
@@ -35,7 +34,6 @@ const Score: FunctionComponent<ScoreProps> = ({ commentId }: ScoreProps) => {
           />
         </svg>
       </button>
-      ;
     </div>
   );
 };

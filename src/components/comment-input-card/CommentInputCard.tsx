@@ -15,7 +15,7 @@ const CommentInputCard: FunctionComponent<CommentInputCardProps> = ({
 }: CommentInputCardProps) => {
   const currentUser: UserType = {
     image: {
-      png: "/",
+      png: "/images/avatars/image-juliusomo.png",
       webp: "/",
     },
     username: "",
@@ -23,9 +23,10 @@ const CommentInputCard: FunctionComponent<CommentInputCardProps> = ({
   return (
     <div className={styles.commentInput__wrapper} id={commentId.toString()}>
       <img
-        className={styles.commentInput__wrapper}
+        className={styles.commentInput__avatar}
         id="current-user-avatar"
         src={currentUser.image.png}
+        alt={currentUser.username}
       />
       <textarea
         className={styles.commentInput__input}
