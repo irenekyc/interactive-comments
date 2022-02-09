@@ -1,0 +1,18 @@
+@import "../../variables.scss";
+
+.userrow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  &__avatar {
+    @include avatar();
+  }
+  &__name {
+    margin-right: 12px;
+  }
+  &__time {
+    color: gray;
+  }
+}

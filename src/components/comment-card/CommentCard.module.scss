@@ -1,0 +1,18 @@
+.commentCard {
+  &__card {
+    background: white;
+    padding: 20px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+  }
+  &__main {
+    flex: 1;
+  }
+  &__content {
+    padding-top: 12px;
+    padding-right: 30px;
+  }
+}
