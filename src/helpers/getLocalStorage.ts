@@ -31,9 +31,7 @@ const getLocaleStorage = async (): Promise<{
       };
     }
     if (!data || !userData) {
-      const { comments, currentUser } = await (
-        await fetch("/data.json")
-      ).json();
+      const { comments, currentUser } = await (await fetch("data.json")).json();
 
       if (!data) {
         response = {
