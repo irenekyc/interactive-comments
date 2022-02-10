@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import data from "../comments/data.json";
 import CommentInputCard from "../../components/comment-input-card";
 
 const NewComment: FunctionComponent = () => {

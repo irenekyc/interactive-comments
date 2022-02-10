@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import CommentsSection from "./widgets/comments";
 import NewComment from "./widgets/new-comment";

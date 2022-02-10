@@ -32,7 +32,7 @@ const CommentInputCard: FunctionComponent<CommentInputCardProps> = ({
         className={styles.commentInput__input}
         placeholder="Add a comment"
       >
-        {isNewComment ? "" : replyTo ? `@${replyTo}` : ""}
+        {isNewComment ? "" : replyTo ? `@${replyTo} ` : ""}
       </textarea>
       <button
         className={styles.commentInput__button}
