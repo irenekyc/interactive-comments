@@ -1,5 +1,5 @@
 export type CommentType = {
-  id: number;
+  id: string;
   content: string;
   createdAt: string;
   score: number;
@@ -8,7 +8,7 @@ export type CommentType = {
 };
 
 type ReplyCommentType = {
-  id: number;
+  id: string;
   content: string;
   createdAt: string;
   score: number;

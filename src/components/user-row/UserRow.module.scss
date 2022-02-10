@@ -10,6 +10,13 @@
   &__name {
     margin-right: 12px;
   }
+  &__badge {
+    padding: 2px 6px;
+    background: $dark-purple;
+    color: white;
+    font-weight: 700;
+    margin-right: 12px;
+  }
   &__time {
     color: $dark-gray-blue;
   }

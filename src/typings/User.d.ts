@@ -13,6 +13,6 @@ type CommentCardOptionType = {
 
 type CommentInputCardOptionType = {
   isNewComment?: boolean;
-  replyTo?: number;
+  replyTo?: string;
   replyToUser?: string;
 };

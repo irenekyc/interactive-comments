@@ -2,19 +2,17 @@ import React, { FunctionComponent, useState } from "react";
 import styles from "./Score.module.scss";
 
 interface ScoreProps {
-  commentId: number;
+  score: number;
 }
 
-const Score: FunctionComponent<ScoreProps> = ({ commentId }: ScoreProps) => {
-  const [score, setScore] = useState<number>(10);
+const Score: FunctionComponent<ScoreProps> = ({ score }: ScoreProps) => {
+  const [inputScore, setInputScore] = useState<number>(score);
 
   return (
     <div className={styles.scoreDiv}>
       <button
         className={styles.score__plus}
-        id={`comment-${commentId}-plus`}
-        data-comment-id={commentId}
-        onClick={() => setScore(score + 1)}
+        onClick={() => setInputScore(inputScore + 1)}
       >
         <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -23,12 +21,10 @@ const Score: FunctionComponent<ScoreProps> = ({ commentId }: ScoreProps) => {
           />
         </svg>
       </button>
-      <p>{score}</p>
+      <p>{inputScore}</p>
       <button
         className={styles.score__minus}
-        id={`comment-${commentId}-minus`}
-        data-comment-id={commentId}
-        onClick={() => setScore(score - 1)}
+        onClick={() => setInputScore(inputScore - 1)}
       >
         <svg width="11" height="3" xmlns="http://www.w3.org/2000/svg">
           <path

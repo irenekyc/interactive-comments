@@ -2,7 +2,7 @@ import React, { FunctionComponent, ButtonHTMLAttributes } from "react";
 import styles from "./ReplyButton.module.scss";
 
 interface ReplyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  commentId: number;
+  commentId: string;
 }
 
 const ReplyButton: FunctionComponent<ReplyButtonProps> = ({

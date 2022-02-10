@@ -12,13 +12,18 @@ const CommentCardWrapper: FunctionComponent<CommentCardWrapperProps> = ({
 }: CommentCardWrapperProps) => {
   return (
     <div>
-      <CommentCard comment={comment} />
+      <CommentCard comment={comment} mainThredId={comment.id} />
       {comment.replies.length > 0 && (
         <div className={styles.replies__wrapper}>
           <div className={styles.replies__divider}></div>
           <div className={styles.replies__main}>
             {comment.replies.map((reply: ReplyCommentType) => (
-              <CommentCard isReply comment={reply} key={reply.id} />
+              <CommentCard
+                isReply
+                comment={reply}
+                key={reply.id}
+                mainThredId={comment.id}
+              />
             ))}
           </div>
         </div>

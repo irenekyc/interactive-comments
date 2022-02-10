@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useRef, useContext } from "react";
 import ReplyButton from "../reply-button";
 import Score from "../score";
 import UserRow from "../user-row";
@@ -7,37 +7,50 @@ import styles from "./CommentCard.module.scss";
 import CurrentUserEditRow from "../current-user-edit-row";
 import CommentInputCard from "../comment-input-card";
 import classnames from "classnames";
+import AppContext from "../../context/AppContext";
 
 interface CommentCardProps {
   isReply?: boolean;
   comment: CommentType | ReplyCommentType;
+  mainThredId: string;
 }
 const CommentCard: FunctionComponent<CommentCardProps> = ({
   comment,
-  isReply,
+  isReply = false,
+  mainThredId,
 }: CommentCardProps) => {
   const replyTo = (): string => {
     if (!isReply) return "";
     const { replyingTo = "" } = comment as ReplyCommentType;
-    return `@${replyingTo}`;
+    return `@${replyingTo} `;
   };
   const isCurrentUser: boolean = comment.user.username === "juliusomo";
   const [isReplying, setIsReplying] = useState<boolean>(false);
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const editCommentDivRef = useRef<HTMLSpanElement | null>(null);
+  const { editComment } = useContext(AppContext);
 
   const updateComment = () => {
     setIsEditing(false);
+    if (editCommentDivRef && editCommentDivRef.current) {
+      const newContent = editCommentDivRef.current.textContent as string;
+      editComment(comment.id, isReply, newContent);
+    }
   };
 
   return (
     <>
       <div className={styles.commentCard__card}>
-        <Score commentId={comment.id} />
+        <Score score={comment.score} />
         <div className={styles.commentCard__main}>
           <div className={styles.commentCard__row}>
             <UserRow user={comment.user} createdAt={comment.createdAt} />
             {isCurrentUser ? (
-              <CurrentUserEditRow onClickEdit={() => setIsEditing(true)} />
+              <CurrentUserEditRow
+                onClickEdit={() => setIsEditing(true)}
+                commentId={comment.id}
+                isReply={isReply}
+              />
             ) : (
               <ReplyButton
                 commentId={comment.id}
@@ -51,7 +64,12 @@ const CommentCard: FunctionComponent<CommentCardProps> = ({
             })}
             contentEditable={isEditing}
           >
-            <p>{replyTo().concat(comment.content)}</p>
+            <p>
+              <span className={styles.commentCard__replyToSpan}>
+                {replyTo()}
+              </span>
+              <span ref={editCommentDivRef}>{comment.content}</span>
+            </p>
           </div>
           {isEditing && (
             <button
@@ -68,11 +86,16 @@ const CommentCard: FunctionComponent<CommentCardProps> = ({
         <CommentInputCard
           isNewComment={false}
           replyTo={comment.user.username}
-          commentId={comment.id}
+          commentId={mainThredId}
+          confirmInput={() => setIsReplying(false)}
         />
       )}
     </>
   );
+};
+
+CommentCard.defaultProps = {
+  isReply: false,
 };
 
 export default CommentCard;

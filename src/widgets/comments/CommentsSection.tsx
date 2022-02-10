@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from "react";
-import data from "./data.json";
+import React, { FunctionComponent, useContext } from "react";
 import { CommentType } from "../../typings/Comment";
 import CommentCardWrapper from "../../components/comment-card-wrapper";
+import AppContext from "../../context/AppContext";
 
 const CommentsSection: FunctionComponent = () => {
-  const { comments } = data;
+  const { comments } = useContext(AppContext);
   return (
     <section className="comments-section">
       {comments

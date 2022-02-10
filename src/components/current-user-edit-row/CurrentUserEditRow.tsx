@@ -3,10 +3,14 @@ import styles from "./CurrentUserEditRow.module.scss";
 import DeleteModal from "../delete-modal";
 interface CurrentUserEditRowProps {
   onClickEdit: () => void;
+  isReply: boolean;
+  commentId: string;
 }
 
 const CurrentUserEditRow: FunctionComponent<CurrentUserEditRowProps> = ({
   onClickEdit,
+  commentId,
+  isReply,
 }: CurrentUserEditRowProps) => {
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
   const openModal = () => setOpenDeleteModal(true);
@@ -16,6 +20,8 @@ const CurrentUserEditRow: FunctionComponent<CurrentUserEditRowProps> = ({
       <DeleteModal
         isOpen={openDeleteModal}
         clickClose={() => setOpenDeleteModal(false)}
+        isReply={isReply}
+        commentId={commentId}
       />
       <div className={styles.row}>
         <button className={styles.button__delete} onClick={openModal}>

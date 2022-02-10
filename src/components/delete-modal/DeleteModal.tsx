@@ -1,17 +1,28 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, {
+  FunctionComponent,
+  useState,
+  useEffect,
+  useContext,
+} from "react";
 
 import Modal from "react-modal";
 import styles from "./DeleteModal.module.scss";
+import AppContext from "../../context/AppContext";
 
 interface DeleteModalProps {
   isOpen: boolean;
   clickClose: () => void;
+  commentId: string;
+  isReply: boolean;
 }
 
 const DeleteModal: FunctionComponent<DeleteModalProps> = ({
   isOpen,
+  commentId,
+  isReply,
   clickClose,
 }: DeleteModalProps) => {
+  const { deleteComment } = useContext(AppContext);
   const [show, setShow] = useState<boolean>(isOpen);
   const closeModal = () => {
     clickClose();
@@ -20,7 +31,7 @@ const DeleteModal: FunctionComponent<DeleteModalProps> = ({
 
   const confirmDelete = () => {
     closeModal();
-    // TODO: delete comment
+    deleteComment(commentId, isReply);
   };
 
   useEffect(() => {
