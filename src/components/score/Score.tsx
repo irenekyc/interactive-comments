@@ -1,15 +1,20 @@
 import React, { FunctionComponent, useState } from "react";
 import styles from "./Score.module.scss";
+import classnames from "classnames";
 
 interface ScoreProps {
   score: number;
+  className?: string;
 }
 
-const Score: FunctionComponent<ScoreProps> = ({ score }: ScoreProps) => {
+const Score: FunctionComponent<ScoreProps> = ({
+  score,
+  className,
+}: ScoreProps) => {
   const [inputScore, setInputScore] = useState<number>(score);
 
   return (
-    <div className={styles.scoreDiv}>
+    <div className={classnames(styles.scoreDiv, className)}>
       <button
         className={styles.score__plus}
         onClick={() => setInputScore(inputScore + 1)}
@@ -35,6 +40,10 @@ const Score: FunctionComponent<ScoreProps> = ({ score }: ScoreProps) => {
       </button>
     </div>
   );
+};
+
+Score.defaultProps = {
+  className: "",
 };
 
 export default Score;

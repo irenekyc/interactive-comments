@@ -3,6 +3,10 @@
 .commentCard {
   &__card {
     @include card-style;
+    flex-direction: column;
+    @include md-up {
+      flex-direction: row;
+    }
   }
   &__main {
     flex: 1;
@@ -32,5 +36,26 @@
 
   &__replyToSpan {
     color: $dark-purple;
+  }
+  &__row__sm {
+    @include row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+  }
+}
+
+.hideInMD {
+  @include show;
+
+  @include md-up {
+    @include hide;
+  }
+}
+
+.hideInSM {
+  @include hide;
+  @include md-up {
+    @include show;
   }
 }

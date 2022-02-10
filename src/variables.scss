@@ -43,3 +43,19 @@ $dark-gray-blue: hsl(211, 10%, 45%);
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
   display: flex;
 }
+
+@mixin hide {
+  visibility: hidden;
+  display: none;
+}
+
+@mixin show {
+  display: flex;
+  visibility: visible;
+}
+
+@mixin md-up {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}

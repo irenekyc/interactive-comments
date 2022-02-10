@@ -7,17 +7,34 @@
     align-items: flex-start;
     padding-left: 24px;
     padding-right: 24px;
+    flex-wrap: wrap;
+    @include md-up {
+      flex-wrap: nowrap;
+    }
   }
 
   &__avatar {
     @include avatar();
+    order: 2;
+    @include md-up {
+      order: 1;
+    }
+  }
+
+  &__inputDiv {
+    width: 100%;
+    order: 1;
+    margin-bottom: 20px;
+    @include md-up {
+      order: 2;
+      margin-left: 12px;
+      margin-right: 12px;
+    }
   }
 
   &__input {
     height: 88px;
-    margin-left: 12px;
-    margin-right: 12px;
-    flex: 1;
+    width: 100%;
     border: 1px solid $dark-gray;
     padding: 12px 18px;
     resize: none;
@@ -28,6 +45,14 @@
   }
 
   &__button {
+    order: 3;
     @include button;
+    display: block;
+    margin-right: 0;
+    margin-left: auto;
+    @include md-up {
+      order: 3;
+      margin-right: 0;
+    }
   }
 }

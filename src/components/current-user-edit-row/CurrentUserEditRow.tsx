@@ -1,16 +1,19 @@
 import React, { FunctionComponent, useState } from "react";
 import styles from "./CurrentUserEditRow.module.scss";
 import DeleteModal from "../delete-modal";
+import classnames from "classnames";
 interface CurrentUserEditRowProps {
   onClickEdit: () => void;
   isReply: boolean;
   commentId: string;
+  className?: string;
 }
 
 const CurrentUserEditRow: FunctionComponent<CurrentUserEditRowProps> = ({
   onClickEdit,
   commentId,
   isReply,
+  className,
 }: CurrentUserEditRowProps) => {
   const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
   const openModal = () => setOpenDeleteModal(true);
@@ -23,7 +26,7 @@ const CurrentUserEditRow: FunctionComponent<CurrentUserEditRowProps> = ({
         isReply={isReply}
         commentId={commentId}
       />
-      <div className={styles.row}>
+      <div className={classnames(styles.row, className)}>
         <button className={styles.button__delete} onClick={openModal}>
           <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -45,6 +48,10 @@ const CurrentUserEditRow: FunctionComponent<CurrentUserEditRowProps> = ({
       </div>
     </>
   );
+};
+
+CurrentUserEditRow.defaultProps = {
+  className: "",
 };
 
 export default CurrentUserEditRow;

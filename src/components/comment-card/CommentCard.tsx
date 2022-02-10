@@ -41,18 +41,20 @@ const CommentCard: FunctionComponent<CommentCardProps> = ({
   return (
     <>
       <div className={styles.commentCard__card}>
-        <Score score={comment.score} />
+        <Score score={comment.score} className={styles.hideInSM} />
         <div className={styles.commentCard__main}>
           <div className={styles.commentCard__row}>
             <UserRow user={comment.user} createdAt={comment.createdAt} />
             {isCurrentUser ? (
               <CurrentUserEditRow
+                className={styles.hideInSM}
                 onClickEdit={() => setIsEditing(true)}
                 commentId={comment.id}
                 isReply={isReply}
               />
             ) : (
               <ReplyButton
+                className={styles.hideInSM}
                 commentId={comment.id}
                 onClick={() => setIsReplying(true)}
               />
@@ -78,6 +80,23 @@ const CommentCard: FunctionComponent<CommentCardProps> = ({
             >
               Update
             </button>
+          )}
+        </div>
+        <div
+          className={classnames(styles.hideInMD, styles.commentCard__row__sm)}
+        >
+          <Score score={comment.score} />
+          {isCurrentUser ? (
+            <CurrentUserEditRow
+              onClickEdit={() => setIsEditing(true)}
+              commentId={comment.id}
+              isReply={isReply}
+            />
+          ) : (
+            <ReplyButton
+              commentId={comment.id}
+              onClick={() => setIsReplying(true)}
+            />
           )}
         </div>
       </div>

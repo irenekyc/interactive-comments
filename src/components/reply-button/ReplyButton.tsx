@@ -1,17 +1,20 @@
 import React, { FunctionComponent, ButtonHTMLAttributes } from "react";
 import styles from "./ReplyButton.module.scss";
+import classnames from "classnames";
 
 interface ReplyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   commentId: string;
+  className?: string;
 }
 
 const ReplyButton: FunctionComponent<ReplyButtonProps> = ({
   commentId,
+  className,
   ...props
 }: ReplyButtonProps) => {
   return (
     <button
-      className={styles.replyButton}
+      className={classnames(styles.replyButton, className)}
       id={`comment-${commentId}-card-reply`}
       data-comment-id={commentId}
       {...props}
@@ -25,6 +28,10 @@ const ReplyButton: FunctionComponent<ReplyButtonProps> = ({
       Reply
     </button>
   );
+};
+
+ReplyButton.defaultProps = {
+  className: "",
 };
 
 export default ReplyButton;

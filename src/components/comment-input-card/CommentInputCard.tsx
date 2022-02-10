@@ -57,14 +57,16 @@ const CommentInputCard: FunctionComponent<CommentInputCardProps> = ({
         src={currentUser.image.png}
         alt={currentUser.username}
       />
-      <textarea
-        className={styles.commentInput__input}
-        placeholder="Add a comment"
-        onChange={(e) => setCommentInput(e.target.value)}
-        value={commentInput}
-      >
-        {isNewComment ? "" : replyTo ? `@${replyTo} ` : ""}
-      </textarea>
+      <div className={styles.commentInput__inputDiv}>
+        <textarea
+          className={styles.commentInput__input}
+          placeholder="Add a comment"
+          onChange={(e) => setCommentInput(e.target.value)}
+          value={commentInput}
+        >
+          {isNewComment ? "" : replyTo ? `@${replyTo} ` : ""}
+        </textarea>
+      </div>
       <button
         className={styles.commentInput__button}
         data-comment-id={commentId}
