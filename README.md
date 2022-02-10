@@ -10,10 +10,10 @@ UseContext as State management
 Live website: https://irenekyc.github.io/interactive-comments/
 
 # Design - Desktop
-![desktop design](../master/design/desktop-design.png)
+![desktop design](../master/design/desktop-design.jpg)
 
 # Design - Mobile
-![mobile design](../master/design/desktop-preview.png)
+![mobile design](../master/design/desktop-preview.jpg)
 
 
 # Getting Started with Create React App
