@@ -1,6 +1,8 @@
+@import "../../variables.scss";
+
 .scoreDiv {
   width: 36px;
-  background: hsl(223, 19%, 93%);
+  background: $dark-gray;
   height: 90px;
   border-radius: 12px;
   padding: 12px;
@@ -10,4 +12,20 @@
   justify-content: space-between;
   flex: 0 0 36px;
   margin-right: 24px;
+
+  p {
+    color: $dark-gray-blue;
+    font-weight: 500;
+  }
+}
+
+.score__plus,
+.score__minus {
+  &:hover {
+    svg {
+      path {
+        fill: $dark-gray-blue;
+      }
+    }
+  }
 }
