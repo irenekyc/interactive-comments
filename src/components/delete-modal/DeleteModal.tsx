@@ -54,6 +54,7 @@ const DeleteModal: FunctionComponent<DeleteModalProps> = ({
   return (
     <Modal
       isOpen={show}
+      appElement={document.querySelector("body") as HTMLElement}
       onRequestClose={closeModal}
       contentLabel="Delete Modal"
       style={{ ...modalStyles }}

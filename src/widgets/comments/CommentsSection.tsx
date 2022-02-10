@@ -9,7 +9,7 @@ const CommentsSection: FunctionComponent = () => {
     <section className="comments-section">
       {comments
         ? comments.map((comment: CommentType) => (
-            <CommentCardWrapper comment={comment} />
+            <CommentCardWrapper comment={comment} key={comment.id} />
           ))
         : "loading"}
     </section>

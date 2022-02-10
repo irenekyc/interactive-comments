@@ -31,7 +31,7 @@ const CommentInputCard: FunctionComponent<CommentInputCardProps> = ({
       const newComment: CommentType = {
         id: uuidv4(),
         content: commentInput,
-        createdAt: "now",
+        createdAt: new Date().toUTCString(),
         score: 0,
         user: currentUser,
         replies: [],
@@ -41,7 +41,7 @@ const CommentInputCard: FunctionComponent<CommentInputCardProps> = ({
       const newReply: ReplyCommentType = {
         id: uuidv4(),
         content: commentInput,
-        createdAt: "now",
+        createdAt: new Date().toUTCString(),
         score: 0,
         user: currentUser,
         replyingTo: replyTo as string,

@@ -8,6 +8,7 @@ import CurrentUserEditRow from "../current-user-edit-row";
 import CommentInputCard from "../comment-input-card";
 import classnames from "classnames";
 import AppContext from "../../context/AppContext";
+import getTimeDistance from "../../helpers/getTimeDistance";
 
 interface CommentCardProps {
   isReply?: boolean;
@@ -44,7 +45,10 @@ const CommentCard: FunctionComponent<CommentCardProps> = ({
         <Score score={comment.score} className={styles.hideInSM} />
         <div className={styles.commentCard__main}>
           <div className={styles.commentCard__row}>
-            <UserRow user={comment.user} createdAt={comment.createdAt} />
+            <UserRow
+              user={comment.user}
+              createdAt={getTimeDistance(comment.createdAt)}
+            />
             {isCurrentUser ? (
               <CurrentUserEditRow
                 className={styles.hideInSM}
