@@ -1,3 +1,21 @@
+# Frontend Mentor - Interactive comments section solution
+
+This is a solution to the [Interactive comments section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+
+Stacks:
+React
+Typescripts
+UseContext as State management
+
+Live website: https://irenekyc.github.io/interactive-comments/
+
+# Design - Desktop
+![desktop design](../master/design/desktop-design.png)
+
+# Design - Mobile
+![mobile design](../master/design/desktop-preview.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
