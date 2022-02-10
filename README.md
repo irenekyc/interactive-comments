@@ -7,6 +7,12 @@ React
 Typescripts
 UseContext as State management
 
+Libraries:
+date-fns
+react-modal
+
+
+
 Live website: https://irenekyc.github.io/interactive-comments/
 
 # Design - Desktop
